@@ -1,30 +1,29 @@
-
-
-    <body><div style="text-align: center">
-    
-   
+<body>
+    <div style="text-align: center">
+         <!--for Display and popup buttons-->
         <div id = "second" style="margin-left:30% ;width:15%">
             <br/>
             <button pButton type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"  (click)="showDialog()" label="Pop Up"></button>
           
         </div>
         <div id = "third">
-                 
-    <div class="content-section implementation">
-            <p-editor [(ngModel)]="text1" [style]="{'height':'320px'}"></p-editor>
-            <button pButton type="button" label="Clear" icon="pi pi-times" (click)="text1=null"></button>
-        </div>
-        </div>
-        
-        </div>
-        </body>
-
-        <p-dialog header="Editor" [(visible)]="display" [style]="{width:'500px',height:'200px'}"[modal]="true">
-        
-        
+                 <!--For displaying the component in the same page-->
             <div class="content-section implementation">
-                <p-editor [(ngModel)]="text2" [style]="{'height':'320px'}"></p-editor>
+                 <!--displaying component-->
+                <p-editor [(ngModel)]="text1" [style]="{'height':'320px'}"></p-editor>
                 <button pButton type="button" label="Clear" icon="pi pi-times" (click)="text1=null"></button>
             </div>
+        </div>
+        
+    </div>
+</body>
+<!--for popup-->
+<p-dialog header="Editor" [(visible)]="display" [style]="{width:'500px',height:'200px'}"[modal]="true">
+        
+    <div class="content-section implementation">
+         <!--Dispalying Component in popup-->
+        <p-editor [(ngModel)]="text2" [style]="{'height':'320px'}"></p-editor>
+        <button pButton type="button" label="Clear" icon="pi pi-times" (click)="text1=null"></button>
+    </div>
                 
-            </p-dialog>
+</p-dialog>

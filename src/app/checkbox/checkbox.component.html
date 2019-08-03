@@ -1,60 +1,63 @@
-
-   
 <body>
-<div>
-<div id = "first"style="text-align: center">
-    <h3>Input Data:</h3>
-    <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
-</div>
-<div id = "second">
-    <br/>
-    <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="showDialog()" >Pop Up</button>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="displaycomponent()">Read</button>
+    <div>
+         <!-- text area for input data-->
+        <div id = "first"style="text-align: center">
+            <h3>Input Data:</h3>
+            <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
         </div>
-    
-
-
-<div id ="third" style="margin-left: 10%;width:40%">
-        <div class="content-section implementation" *ngIf ="data&&dis">
+        <!--for Display and popup buttons-->
+        <div id = "second">
+            <br/>
+            <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="showDialog()" >Pop Up</button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="displaycomponent()">Read</button>
+        </div>
+        <!--For displaying the component in the same page-->
+        <div id ="third" style="margin-left: 10%;width:40%">
+            <div class="content-section implementation" *ngIf ="data&&dis">
                 
-                    <div class="ui-g" style="width:250px;margin-bottom:10px" *ngFor="let d of data">
-                        <div class="ui-g-12" *ngIf = "d.value&&d.label; else error"><p-checkbox name="{{d.name}}" value="{{d.value}}" label="{{d.label}}" [(ngModel)]="selectedCheckbox" inputId="{{d.id}}"></p-checkbox></div>
-                       <!-- <div class="ui-g-12"><p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCheckbox" inputId="sf"></p-checkbox></div>
-                        <div class="ui-g-12"><p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCheckbox" inputId="la"></p-checkbox></div>
-                       -->
+                <div class="ui-g" style="width:250px;margin-bottom:10px" *ngFor="let d of data">
+                    <!--checking for appropriate data-->
+                    <div class="ui-g-12" *ngIf = "d.value&&d.label; else error">
+                        <!--displaying component-->
+                        <p-checkbox name="{{d.name}}" value="{{d.value}}" label="{{d.label}}" [(ngModel)]="selectedCheckbox" inputId="{{d.id}}"></p-checkbox></div>
+
                     </div>
-                    <ng-template #error>
-                            <h3 style="color:red"> Invalid data </h3>
-                         </ng-template>
-                    Selected: <span *ngFor="let city of selectedCheckbox" style="margin-right:10px">{{city}}</span>
+                <!--Error Message-->
+                <ng-template #error>
+                    <h3 style="color:red"> Invalid data </h3>
+                </ng-template>
+                Selected: <span *ngFor="let city of selectedCheckbox" style="margin-right:10px">{{city}}</span>
             
-                </div>
+            </div>
                 
-</div>
+        </div>
 
-</div>
+    </div>
 </body>
 
 
 
-
+<!--for popup-->
 <p-dialog header="Checkbox" [(visible)]="display" [style]="{width:'500px',height:'200px'}"[modal]="true">
        
-        <div class="content-section implementation" *ngIf ="data">
-            {{d}}
-                <div class="ui-g" style="width:250px;margin-bottom:10px" *ngFor="let d of data">
-                    <div class="ui-g-12" *ngIf = "d.value&&d.label; else error" ><p-checkbox name="{{d.name}}" value="{{d.value}}" label="{{d.label}}" [(ngModel)]="selectedCheckbox" inputId="{{d.id}}"></p-checkbox></div>
-                   <!-- <div class="ui-g-12"><p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCheckbox" inputId="sf"></p-checkbox></div>
-                    <div class="ui-g-12"><p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCheckbox" inputId="la"></p-checkbox></div>
-                   -->
-                </div>
-                <ng-template #error>
-                        <h3 style="color:red"> Invalid data </h3>
-                     </ng-template>
-                Selected: <span *ngFor="let city of selectedCheckbox" style="margin-right:10px">{{city}}</span>
-        
+    <div class="content-section implementation" *ngIf ="data">
+            
+        <div class="ui-g" style="width:250px;margin-bottom:10px" *ngFor="let d of data">
+            <!--checking for appropriate data-->
+            <div class="ui-g-12" *ngIf = "d.value&&d.label; else error" >
+                   <!--Dispalying Component in popup-->
+                <p-checkbox name="{{d.name}}" value="{{d.value}}" label="{{d.label}}" [(ngModel)]="selectedCheckbox" inputId="{{d.id}}"></p-checkbox>
             </div>
+
+        </div>
+        <!--error Message-->
+            <ng-template #error>
+                <h3 style="color:red"> Invalid data </h3>
+            </ng-template>
+            Selected: <span *ngFor="let city of selectedCheckbox" style="margin-right:10px">{{city}}</span>
+        
+    </div>
             
 
 </p-dialog>

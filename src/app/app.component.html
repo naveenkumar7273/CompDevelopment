@@ -1,37 +1,17 @@
-<!--
-<app-fileuploader></app-fileuploader>
 
-<app-password></app-password>
-
-<app-paragraph></app-paragraph>
-
-<app-checkbox></app-checkbox>
-<app-stepnumber></app-stepnumber
--->
 <h1 style="text-align: center;color:brown;margin-left: 10%">Angular UI Components</h1>
-
+<!--for menu button-->
 <button type ="text" (click)="v=true" pButton icon="pi pi-plus" label="Menu"></button>
-<!--
-<nav>
-    <a routerLink ="/password" routerLinkActive="active">Password</a> <br/>
-    <a routerLink ="/paragraph" routerLinkActive="active">Paragraph</a><br/>
-    <a routerLink ="/checkbox" routerLinkActive="active">Checkbox</a><br/>
-    <a routerLink ="/stepnumber" routerLinkActive="active">StepNumber</a><br/>
-    <a routerLink ="/fileuploader" routerLinkActive="active">FileUpload</a><br/>
-    <a routerLink ="/piechart" routerLinkActive="active">Piechart</a><br/>
-    <a routerLink ="/editor" routerLinkActive="active">Editor</a>
 
 
-</nav>
--->
+<!--for sidebar and links for components-->
 <p-sidebar [(visible)]="v">
 <p-panelMenu [model] = "items" [style]="{'width':'210px'}" routerLinkActive="active" ></p-panelMenu>
 </p-sidebar>
-<app-editor1></app-editor1>
 
 
 
-
+<!--For rounting the components-->
 <router-outlet></router-outlet>
 
 

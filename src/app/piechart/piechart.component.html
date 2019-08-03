@@ -1,36 +1,45 @@
-<body><div style="text-align: center">
-<div id = "first">
-    <h3>Input Data:</h3>
-    <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
+<body>
+    <div style="text-align: center">
+        <!-- text area for input data-->
+        <div id = "first">
+            <h3>Input Data:</h3>
+            <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
 
-</div>
-<div id = "second">
-    <br/>
-    <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="showDialog()" >Pop Up</button>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="displaycomponent()">Read</button>
-
-</div>
-<div id = "third" *ngIf="dis">
-    <div *ngIf="data.labels && data.datasets ;else error" >
-    <p-chart type="pie" [data]="data"></p-chart>
-    </div>
-    <ng-template #error>
-            <h3 style="color:red"> Invalid data </h3>
-         </ng-template>
-</div>
-
-</div>
-</body>
-
-    <p-dialog header="{{data.header}}" [(visible)]="display" [style]="{width:'500px',height:'500px'}"[modal]="true">
-       
-        <div class="content-section implementation-charts" *ngIf="data.labels && data.datasets ;else error">
-            <p-chart type="pie" [data]="data"></p-chart>
         </div>
-        <ng-template #error>
+        <!--for Display and popup buttons-->
+        <div id = "second">
+            <br/>
+            <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="showDialog()" >Pop Up</button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="displaycomponent()">Read</button>
+
+        </div>
+        <!--For displaying the component in the same page-->
+        <div id = "third" *ngIf="dis">
+             <!--checking for appropriate data-->
+            <div *ngIf="data.labels && data.datasets ;else error" >
+                 <!--displaying component-->
+                <p-chart type="pie" [data]="data"></p-chart>
+            </div>
+             <!--Error Message-->
+            <ng-template #error>
                 <h3 style="color:red"> Invalid data </h3>
-             </ng-template>
-    </p-dialog>
+            </ng-template>
+        </div>
+
+    </div>
+</body>
+<!--for popup-->
+<p-dialog header="{{data.header}}" [(visible)]="display" [style]="{width:'500px',height:'500px'}"[modal]="true">
+    <!--checking for appropriate data-->
+    <div class="content-section implementation-charts" *ngIf="data.labels && data.datasets ;else error">
+        <!--Dispalying Component in popup-->
+        <p-chart type="pie" [data]="data"></p-chart>
+    </div>
+    <!--error Message-->
+    <ng-template #error>
+        <h3 style="color:red"> Invalid data </h3>
+    </ng-template>
+</p-dialog>
         
 

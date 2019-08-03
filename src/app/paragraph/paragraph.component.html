@@ -1,38 +1,40 @@
-<body><div>
-                <div id = "first"style="text-align: center">
-                    <h3>Input Data:</h3>
-                    <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
+<body>
+        <div>
+                <div id = "first"style="text-align: center"><!--for text area for input data-->
+                        <h3>Input Data:</h3>
+                        <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
                 
                 </div>
-                <div id = "second">
-                    <br/>
-                    <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons"(click)="showDialog()" >Pop Up</button>
+                <div id = "second"><!--for Display and popup buttons-->
+                        <br/>
+                        <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons"(click)="showDialog()" >Pop Up</button>
                         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                         <button type ="text" id = "buttons" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"(click)="read()">Read</button>
                 
                 </div>
-                <div id = "third" *ngIf ="dis" >
-                                <div class="content-section implementation" *ngIf ="data.label ;else error" >
-                        
-                                               <h3>{{data.label}}:</h3> <textarea style ="font-size:20px;align-self:center" appendTo="body" rows="{{data.rows}}" cols="{{data.cols}}" pInputTextarea></textarea>
-                                            </div>
-                                            <ng-template #error>
-                                                    <h3 style="color:red"> Invalid data </h3>
-                                                 </ng-template>
-   </div>
+                <div id = "third" *ngIf ="dis" ><!--For displaying the component in the same page-->
+                        <div class="content-section implementation" *ngIf ="data.label ;else error" >
+                                <!--displaying component-->
+                                <h3>{{data.label}}:</h3> <textarea style ="font-size:20px;align-self:center" appendTo="body" rows="{{data.rows}}" cols="{{data.cols}}" pInputTextarea></textarea>
+                        </div>
+                        <ng-template #error><!--Error Message-->
+                                <h3 style="color:red"> Invalid data </h3>
+                        </ng-template>
+                </div>
                 
-   </div>
+        </div>
 </body>
-                
-        <p-dialog header="{{data.label}}" [(visible)]="display" [style]="{width:'500px',height:'200px'}"[modal]="true">
-                <div class="content-section implementation" *ngIf ="data.label ;else error">
-                        
-                        <textarea style ="font-size:20px;align-self:center" appendTo="body" rows="{{data.rows}}" cols="{{data.cols}}" pInputTextarea></textarea>
-                    </div>
-                    <ng-template #error>
-                            <h3 style="color:red"> Invalid data </h3>
-                         </ng-template>
-            </p-dialog>
+
+<!--for popup-->
+<p-dialog header="{{data.label}}" [(visible)]="display" [style]="{width:'500px',height:'200px'}"[modal]="true">
+        <div class="content-section implementation" *ngIf ="data.label ;else error">
+                <!--Dispalying Component in popup-->
+                <textarea style ="font-size:20px;align-self:center" appendTo="body" rows="{{data.rows}}" cols="{{data.cols}}" pInputTextarea></textarea>
+        </div>
+        <ng-template #error><!--error Message-->
+                <h3 style="color:red"> Invalid data </h3>
+        </ng-template>
+</p-dialog>
             
            
 

@@ -11,12 +11,13 @@ import { MenuItem } from 'primeng/api';
 export class AppComponent  {
 
 
-    items: MenuItem[];
+    items: MenuItem[];// for storing menu items
     v =true;
 
     ngOnInit() {
+        
         this.items = [
-            {
+            {//link and labels of simple components are assined to items variable
                 label: 'Simple Components',
                 items: [{
                         label: 'Password', 
@@ -37,6 +38,7 @@ export class AppComponent  {
                          }
                         ]
             },
+            //link and labels of simple components are assined to items variable
             {
                 label: 'Complex Components',
                 items: [{
