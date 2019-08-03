@@ -1,0 +1,39 @@
+
+
+<body><div>
+    
+    <div id = "second" style="margin-left: 30%">
+        <br/>
+        <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons"(click)="showDialog()" >Pop Up</button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            
+    </div>
+    <div id = "third" style="width: 50%">
+                
+<div class="content-section implementation">
+    <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
+</div>
+
+</div>
+    
+</div>
+</body>
+
+
+
+
+
+
+<p-dialog  [(visible)]="display" [style]="{width:'500px',height:'200px'}"[modal]="true">
+                   
+<div class="content-section implementation">
+    <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
+</div>
+
+</p-dialog>
+
+
+
+
+
+

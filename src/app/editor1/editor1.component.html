@@ -1,0 +1,36 @@
+<!--
+    <body><div>
+        <div id = "second">
+            <br/>
+            <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons" (click)="showDialog()" >Pop Up</button>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+               
+        
+        </div>
+        <div id = "third">
+                       
+    <div class="content-section implementation">
+       
+        <p-editor [(ngModel)]="text1" [style]="{'height':'320px'}"></p-editor>
+        <p>Value: {{text1||'empty'}}</p>
+        
+        <button pButton type="button" label="Clear" icon="pi pi-times" (click)="text1=null"></button>
+    
+    
+       </div>
+        </div>
+        
+        </div>
+        </body>    
+
+
+        <p-dialog header="Editor" [(visible)]="display" [style]="{width:'500px',height:'100px'}" [modal]="true" >
+       
+            
+            <p-editor [(ngModel)]="text2" [style]="{'height':'320px'}"></p-editor>
+           
+        </p-dialog>
+            
+
+
+    -->
