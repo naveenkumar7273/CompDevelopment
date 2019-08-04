@@ -1,5 +1,7 @@
 <body>
         <div>
+                <h2 style="text-align: center">Paragraph</h2>
+                
                 <div id = "first"style="text-align: center"><!--for text area for input data-->
                         <h3>Input Data:</h3>
                         <textarea style ="align-self: flex-start" rows ="10" cols ="30" [(ngModel)]="inputdata"></textarea>
@@ -9,7 +11,7 @@
                         <br/>
                         <button type ="text" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" id = "buttons"(click)="showDialog()" >Pop Up</button>
                         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        <button type ="text" id = "buttons" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"(click)="read()">Read</button>
+                        <button type ="text" id = "buttons" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"(click)="displaycomponent()">Display</button>
                 
                 </div>
                 <div id = "third" *ngIf ="dis" ><!--For displaying the component in the same page-->

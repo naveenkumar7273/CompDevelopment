@@ -7,29 +7,27 @@ import  {MessageService} from 'primeng/components/common/messageservice';
   styleUrls: ['./fileuploader.component.css']
 })
 export class FileuploaderComponent implements OnInit {
-  inputdata:string;
-  data:JSON;
-  dis = false;
+  inputdata:string;//to store input data
+  data={};//to store json data
+  dis = false;// to hide the component in the same page
+  display: boolean = false;//to hide the popup
+  uploadedFiles: any[] = [];//to store the uploaded files
 
   ngOnInit() {
   }
-  uploadedFiles: any[] = [];
+  //to convert string data to json data
   read()
   {
     this.data = JSON.parse(this.inputdata);
     console.log(this.data);
   }
-
+  //to display the component in the same page
   displaycomponent()
   {
     this.read();
     this.dis = true;
   }
-
-
-
-  display: boolean = false;
-
+  //to display the component in popup
   showDialog() {
     this.read();
       this.display = true;
@@ -37,7 +35,7 @@ export class FileuploaderComponent implements OnInit {
 
 
   constructor(private messageService: MessageService) {}
-
+  //to store the uploaded files
   onUpload(event) {
       for(let file of event.files) {
           this.uploadedFiles.push(file);

@@ -9,16 +9,16 @@ import {EventService} from '../event.service';
   styleUrls: ['./cal.component.css']
 })
 export class CalComponent implements OnInit {
-  events: any;
+  events: any;//to store the events
 
   options: any;
-  
+
   header: any;
           
   constructor(private eventService: EventService) { }
 
-    display: boolean = false;
-
+    display: boolean = false;//to hide the popup
+    //to display component in popup
     showDialog() {
         this.display = true;
     }
@@ -28,7 +28,7 @@ export class CalComponent implements OnInit {
       
       this.options = {
           plugins:[ dayGridPlugin, timeGridPlugin, interactionPlugin ],
-          defaultDate: '2017-02-01',
+          defaultDate: '2019-08-02',
           header: {
               left: 'prev,next',
               center: 'title',

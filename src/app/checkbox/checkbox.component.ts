@@ -12,27 +12,31 @@ export class CheckboxComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectedCities: string[] = [];
+  selectedCities: string[] = [];//to store the values of the selected checkboxes
 
   selectedCategories: string[] = ['Technology', 'Sports'];
   
-  checked: boolean = false;
-  dis = false;
+  checked: boolean = false;//to hide the popup
+  dis = false;//to hide the component in the same page
 
-  inputdata:string;
-  data:JSON[];
-    
+  inputdata:string;//to store the input data 
+  data=[];//to store json data
+  display: boolean = false;//to hide the popup
+
+
+    //to convert string data to json
     read()
     {
       this.data = JSON.parse(this.inputdata);
     }
+    //to display the component in the same page
     displaycomponent()
     {
       this.read();
       this.dis=true;
     }
-    display: boolean = false;
-
+   
+    //to display the popup
     showDialog() {
       this.read();
         this.display = true;
